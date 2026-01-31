@@ -26,9 +26,10 @@ Este proyecto es una web e-commerce funcional construida con Next.js 14 (App Rou
 ## ⚙️ Configuración e Instalación
 
 1. **Clonar e instalar dependencias:**
-
+   Si es la primera vez que instalas el proyecto o quieres asegurar la compatibilidad de versiones:
+   
    ```bash
-   npm install
+   npm ci
    ```
 
 2. **Configurar variables de entorno:**
