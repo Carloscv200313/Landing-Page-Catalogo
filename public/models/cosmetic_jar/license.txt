@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cosmetic jar
+* source:	https://sketchfab.com/3d-models/cosmetic-jar-f924e9dfd0eb42409ca63ac635b9e8ff
+* author:	Jozsef Hocza (https://sketchfab.com/hocza)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cosmetic jar" (https://sketchfab.com/3d-models/cosmetic-jar-f924e9dfd0eb42409ca63ac635b9e8ff) by Jozsef Hocza (https://sketchfab.com/hocza) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
