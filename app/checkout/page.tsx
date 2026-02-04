@@ -12,8 +12,7 @@ import toast from 'react-hot-toast';
 
 const checkoutSchema = z.object({
     nombre: z.string().min(3, 'El nombre debe tener al menos 3 caracteres'),
-    telefono: z.string().min(9, 'El teléfono debe tener al menos 9 dígitos'),
-    direccion: z.string().min(5, 'La dirección es obligatoria para el envío'),
+    direccion: z.string().optional(),
     notas: z.string().optional(),
 });
 
@@ -121,17 +120,7 @@ export default function CheckoutPage() {
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black uppercase tracking-widest text-foreground/40 ml-1">Teléfono / WhatsApp</label>
-                                        <input
-                                            {...register('telefono')}
-                                            placeholder="Ej. 999 888 777"
-                                            className={`w-full px-8 py-5 bg-[#F9F9F9] border ${errors.telefono ? 'border-red-500' : 'border-transparent'} rounded-[24px] outline-none focus:bg-white focus:border-primary transition-all font-bold`}
-                                        />
-                                        {errors.telefono && <p className="text-[10px] text-red-500 font-bold ml-1">{errors.telefono.message}</p>}
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <label className="text-[10px] font-black uppercase tracking-widest text-foreground/40 ml-1">Dirección de Entrega</label>
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-foreground/40 ml-1">Dirección de Entrega (Opcional)</label>
                                         <input
                                             {...register('direccion')}
                                             placeholder="Ej. Av. Larco 123, Miraflores, Lima"
@@ -142,7 +131,7 @@ export default function CheckoutPage() {
                                 </form>
                             </div>
 
-                            <div className="pt-10 border-t border-border/50 space-y-4">
+                            <div className="pt-4 border-t border-border/50 space-y-4">
                                 <div className="flex justify-between text-xs font-bold text-foreground/40 uppercase tracking-widest">
                                     <span>Subtotal</span>
                                     <span>S/ {getSubtotal().toFixed(2)}</span>
@@ -157,7 +146,7 @@ export default function CheckoutPage() {
                                 </div>
                             </div>
 
-                            <div className="space-y-4 pt-4">
+                            <div className="space-y-4 pt-2">
                                 <button
                                     onClick={handleSubmit(handleWhatsAppOrder)}
                                     className="w-full py-6 bg-accent text-white font-black rounded-full shadow-2xl shadow-accent/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3"
@@ -165,19 +154,6 @@ export default function CheckoutPage() {
                                     <MessageCircle className="w-5 h-5" />
                                     Enviar pedido por WhatsApp
                                 </button>
-
-                                <button
-                                    onClick={handleSubmit(handleCopyJSON)}
-                                    className="w-full flex items-center justify-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-foreground/40 hover:text-foreground transition-colors"
-                                >
-                                    <Copy className="w-4 h-4" />
-                                    Copiar detalles (JSON)
-                                </button>
-                            </div>
-
-                            <div className="flex items-center justify-center space-x-2 opacity-30 grayscale">
-                                <CreditCard className="w-4 h-4" />
-                                <span className="text-[9px] font-black uppercase tracking-widest whitespace-nowrap">Checkout seguro y encriptado</span>
                             </div>
                         </div>
                     </div>

@@ -22,7 +22,7 @@ export async function GET(request: Request) {
     }
 
     if (category) {
-      query['category.slug'] = category;
+      query.categories = category;
     }
 
     if (minPrice || maxPrice) {

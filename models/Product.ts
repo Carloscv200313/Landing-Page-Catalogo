@@ -11,6 +11,7 @@ const ProductSchema = new Schema(
       name: { type: String, required: true },
       slug: { type: String, required: true, index: true },
     },
+    categories: { type: [String], default: [], index: true },
     tags: { type: [String], default: [] },
     isActive: { type: Boolean, default: true, index: true },
   },

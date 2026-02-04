@@ -11,6 +11,7 @@ export interface Product {
   price: number;
   images: string[];
   category: Category;
+  categories: string[];
   tags: string[];
   isActive: boolean;
   createdAt: string;
@@ -23,7 +24,7 @@ export interface CartItem extends Product {
 
 export interface CustomerInfo {
   nombre: string;
-  telefono: string;
+  telefono?: string;
   direccion?: string;
   notas?: string;
 }

@@ -8,11 +8,15 @@ interface FiltersProps {
 }
 
 const CATEGORIES = [
-    { name: 'Todos', slug: '' },
-    { name: 'Labiales', slug: 'labiales' },
-    { name: 'Rostro', slug: 'rostro' },
-    { name: 'Ojos', slug: 'ojos' },
-    { name: 'Cuidado Piel', slug: 'skin-care' },
+    { label: 'Todos', slug: '' },
+    { label: 'Skincare', slug: 'skincare' },
+    { label: 'Maquillaje', slug: 'maquillaje' },
+    { label: 'Rostro', slug: 'rostro' },
+    { label: 'Ojos', slug: 'ojos' },
+    { label: 'Labios', slug: 'labios' },
+    { label: 'Cabello', slug: 'cabello' },
+    { label: 'Fragancias', slug: 'fragancias' },
+    { label: 'Cuidado Corporal', slug: 'cuidado-corporal' },
 ];
 
 const SORT_OPTIONS = [
@@ -69,7 +73,7 @@ export default function Filters({ onFilterChange, currentFilters }: FiltersProps
                                 : 'bg-white text-foreground/60 border border-border hover:border-primary hover:text-primary'
                             }`}
                     >
-                        {cat.name}
+                        {cat.label}
                     </button>
                 ))}
             </div>

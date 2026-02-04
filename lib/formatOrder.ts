@@ -19,7 +19,7 @@ export const formatOrderJSON = (items: CartItem[], customer: CustomerInfo, total
 export const formatWhatsAppMessage = (items: CartItem[], customer: CustomerInfo, total: number): string => {
   let message = `*PEDIDO - LUMINA*\n\n`;
   message += `*Cliente:* ${customer.nombre}\n`;
-  message += `*Tel:* ${customer.telefono}\n`;
+  if (customer.telefono) message += `*Tel:* ${customer.telefono}\n`;
   if (customer.direccion) message += `*Dirección:* ${customer.direccion}\n`;
   message += `\n*PRODUCTOS: *\n`;
 

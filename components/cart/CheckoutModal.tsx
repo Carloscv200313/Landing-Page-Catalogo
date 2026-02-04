@@ -11,7 +11,6 @@ import { useEffect } from 'react';
 
 const checkoutSchema = z.object({
     nombre: z.string().min(3, 'El nombre debe tener al menos 3 caracteres'),
-    telefono: z.string().min(9, 'El teléfono debe tener al menos 9 dígitos'),
     direccion: z.string().optional(),
     notas: z.string().optional(),
 });
@@ -83,16 +82,6 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                                     placeholder="Juan Pérez"
                                 />
                                 {errors.nombre && <p className="text-[10px] text-red-500 font-bold ml-1">{errors.nombre.message}</p>}
-                            </div>
-
-                            <div className="space-y-1.5">
-                                <label className="text-xs font-bold uppercase tracking-widest text-foreground/40 ml-1">WhatsApp / Teléfono</label>
-                                <input
-                                    {...register('telefono')}
-                                    className={`w-full px-5 py-3.5 bg-secondary/20 border ${errors.telefono ? 'border-red-500' : 'border-transparent'} rounded-2xl outline-none focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all text-sm`}
-                                    placeholder="922 814 060"
-                                />
-                                {errors.telefono && <p className="text-[10px] text-red-500 font-bold ml-1">{errors.telefono.message}</p>}
                             </div>
 
                             <div className="space-y-1.5">

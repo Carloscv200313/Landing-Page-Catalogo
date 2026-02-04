@@ -86,7 +86,7 @@ export default function ProductDetailModal({ isOpen, onClose, product }: Product
                             <div className="flex items-center gap-4 text-xs font-bold text-foreground/60">
                                 <div className="flex items-center gap-2">
                                     <Truck className="w-5 h-5 text-primary" />
-                                    <span>Envío Gratis S/ 200</span>
+                                    <span>Envío Gratis S/ 50</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <ShieldCheck className="w-5 h-5 text-primary" />
