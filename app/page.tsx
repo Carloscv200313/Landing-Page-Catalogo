@@ -28,17 +28,21 @@ export default function HomePage() {
       {/* Logos Section */}
       <section className="py-20 border-y border-border overflow-hidden bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-between items-center gap-8 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
-            {logos.map(logo => (
-              <span key={logo} className="text-2xl md:text-3xl font-black tracking-[0.2em]">{logo}</span>
-            ))}
+          <div className="logo-marquee opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
+            <div className="logo-marquee__track">
+              {[...logos, ...logos].map((logo, i) => (
+                <span key={`${logo}-${i}`} className="text-2xl md:text-3xl font-black tracking-[0.2em] whitespace-nowrap">
+                  {logo}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Tendencias Section */}
-      <section id="tienda" className="py-32 container mx-auto px-4 md:px-6">
-        <div className="flex justify-between items-end mb-16">
+      <section id="tienda" className="py-20 container mx-auto px-4 md:px-6">
+        <div className="flex md:flex-row flex-col justify-between md:items-end gap-4 mb-16">
           <div className="space-y-4">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Nuestra Selección</span>
             <h2 className="text-5xl font-black tracking-tight text-foreground">
