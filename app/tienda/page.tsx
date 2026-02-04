@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Filters from '@/components/products/Filters';
 import ProductGrid from '@/components/products/ProductGrid';
 import Image from 'next/image';
-import { ChevronDown } from 'lucide-react';
 
 export default function TiendaPage() {
     const [filters, setFilters] = useState({
@@ -55,15 +54,6 @@ export default function TiendaPage() {
                         <div className="space-y-2">
                             <h2 className="text-3xl font-black tracking-tight">Catálogo de Cosmetología</h2>
                             <p className="text-[10px] font-black uppercase tracking-widest text-foreground/30">Mostrando 12 productos</p>
-                        </div>
-
-                        <div className="flex flex-wrap items-center gap-4">
-                            <div className="flex items-center space-x-2 text-[11px] font-black uppercase tracking-widest text-foreground/40">
-                                <span>Ordenar por:</span>
-                                <button className="text-foreground flex items-center">
-                                    Más recientes <ChevronDown className="ml-1 w-3 h-3" />
-                                </button>
-                            </div>
                         </div>
                     </div>
 
