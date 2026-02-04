@@ -25,7 +25,7 @@ export default function AddToCartButton({ product }: { product: Product }) {
     return (
         <button
             onClick={handleAddToCart}
-            className="w-full py-5 bg-primary text-white font-black rounded-full shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 text-lg"
+            className="w-full py-4 sm:py-5 bg-primary text-white font-black rounded-full shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 text-base sm:text-lg"
         >
             <ShoppingBag className="w-5 h-5" />
             Añadir al Carrito

@@ -31,15 +31,15 @@ export default function Filters({ onFilterChange, currentFilters }: FiltersProps
     };
 
     return (
-        <div className="space-y-8 animate-in fade-in duration-700">
-            <div className="flex flex-col lg:flex-row gap-6 justify-between items-start lg:items-center">
+        <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-700">
+            <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 justify-between items-start lg:items-center">
                 {/* Search */}
                 <div className="relative w-full lg:max-w-md group">
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40 group-focus-within:text-primary transition-colors" />
                     <input
                         type="text"
                         placeholder="Buscar productos..."
-                        className="w-full pl-12 pr-4 py-4 bg-white border border-border rounded-2xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all"
+                        className="w-full pl-12 pr-4 py-3.5 sm:py-4 bg-white border border-border rounded-2xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all text-sm sm:text-base"
                         value={currentFilters.q}
                         onChange={(e) => handleChange('q', e.target.value)}
                     />
@@ -63,12 +63,13 @@ export default function Filters({ onFilterChange, currentFilters }: FiltersProps
             </div>
 
             {/* Categories */}
-            <div className="flex flex-wrap gap-2">
+            <div className="-mx-4 px-4 sm:mx-0 sm:px-0">
+                <div className="flex gap-2 overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap scrollbar-hide">
                 {CATEGORIES.map((cat) => (
                     <button
                         key={cat.slug}
                         onClick={() => handleChange('category', cat.slug)}
-                        className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all ${currentFilters.category === cat.slug
+                        className={`shrink-0 px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all ${currentFilters.category === cat.slug
                                 ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-105'
                                 : 'bg-white text-foreground/60 border border-border hover:border-primary hover:text-primary'
                             }`}
@@ -76,6 +77,7 @@ export default function Filters({ onFilterChange, currentFilters }: FiltersProps
                         {cat.label}
                     </button>
                 ))}
+                </div>
             </div>
         </div>
     );

@@ -11,6 +11,7 @@ const emptySubscribe = () => () => { };
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const totalItems = useCartStore((state) => state.getTotalItems());
 
     // To avoid hydration issues with localStorage
@@ -27,6 +28,17 @@ export default function Header() {
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMenuOpen]);
 
     return (
         <>
@@ -66,7 +78,11 @@ export default function Header() {
                             )}
                         </button>
 
-                        <button className="md:hidden p-2 text-foreground/60 hover:text-primary transition-colors">
+                        <button
+                            onClick={() => setIsMenuOpen(true)}
+                            className="md:hidden p-2 text-foreground/60 hover:text-primary transition-colors"
+                            aria-label="Abrir menú"
+                        >
                             <Menu className="w-6 h-6" />
                         </button>
                     </div>
@@ -74,6 +90,32 @@ export default function Header() {
             </header>
 
             <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+
+            <div className="fixed inset-0 z-[60] pointer-events-none">
+                <div
+                    className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0'}`}
+                    onClick={() => setIsMenuOpen(false)}
+                />
+                <div
+                    className={`absolute right-0 top-0 h-full w-[82%] max-w-xs bg-white shadow-2xl border-l border-border transition-transform duration-500 ease-out transform ${isMenuOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full'}`}
+                >
+                    <div className="p-6 flex items-center justify-between border-b border-border">
+                        <span className="text-lg font-black tracking-tight text-foreground">Menú</span>
+                        <button
+                            onClick={() => setIsMenuOpen(false)}
+                            className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-foreground/60 hover:text-foreground hover:border-foreground transition-colors"
+                            aria-label="Cerrar menú"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                    <nav className="p-6 space-y-4 text-sm font-black uppercase tracking-[0.2em] text-foreground/60">
+                        <Link onClick={() => setIsMenuOpen(false)} href="/" className="block hover:text-primary transition-colors">Inicio</Link>
+                        <Link onClick={() => setIsMenuOpen(false)} href="/tienda" className="block hover:text-primary transition-colors">Tienda</Link>
+                        <Link onClick={() => setIsMenuOpen(false)} href="/blog" className="block hover:text-primary transition-colors">Blog</Link>
+                    </nav>
+                </div>
+            </div>
         </>
     );
 }

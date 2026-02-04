@@ -24,7 +24,7 @@ const BLOG_POSTS = [
     {
         title: "La verdad sobre el SPF en invierno",
         category: "Protección Solar",
-        image: "https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?w=800&q=80",
+        image: "/spf.jpg",
         excerpt: "¿Crees que no necesitas protector solar si está nublado? Te explicamos por qué los rayos UV siguen afectando.",
         date: "4 min de lectura",
         author: "Dra. Sofía M."
